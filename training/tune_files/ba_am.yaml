@@ -1,0 +1,44 @@
+bapomdp_env_v0_DQN:
+  config:
+    _enable_learner_api: false
+    _enable_rl_module_api: false
+    batch_mode: truncate_episodes
+    double_q: false
+    dueling: false
+    env: bapomdp_env_v0
+    exploration_config:
+      epsilon_timesteps: 2
+      final_epsilon: 0.0
+      initial_epsilon: 1.0
+      type: EpsilonGreedy
+    framework: torch
+    gamma: 0.97
+    hiddens: []
+    lr: 0.0001
+    model:
+      custom_model: TorchActionMaskModel
+      fcnet_activation: tanh
+      fcnet_hiddens:
+      - 64
+    n_step: 2
+    noisy: false
+    num_atoms: 1
+    num_steps_sampled_before_learning_starts: 1000
+    observation_filter: NoFilter
+    replay_buffer_config:
+      capacity: 100000
+      prioritized_replay_alpha: 0.6
+      prioritized_replay_beta: 0.5
+      prioritized_replay_eps: 3.0e-06
+      replay_sequence_length: 1
+      type: MultiAgentPrioritizedReplayBuffer
+      worker_side_prioritization: false
+    sigma0: 0.5
+    target_network_update_freq: 10000
+    td_error_loss: mse
+    train_batch_size: 32
+    training_intensity: 32
+    v_max: 10
+    v_min: -50000
+  env: bapomdp_env_v0
+  run: DQN
