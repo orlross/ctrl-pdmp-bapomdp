@@ -10,7 +10,6 @@ __pycache__/
 training/results/
 simulations/data/
 *.R
-*.pdf
 *.Rhistory
 *.RData
 
